@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <div id="app">
+      <p>{{seconds}} has elapsed since the creation of app component</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          seconds: 0,
+        },
+        created() {
+          setInterval(() => {
+            this.seconds++;
+          }, 1000);
+        },
+      });
+    </script>
+  </body>
+</html>

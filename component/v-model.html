@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <div id="app">
+      <input type="text" v-model="message" placeholder="Enter a message" />
+      <p>Message is {{message}}</p>
+      <hr />
+
+      <select v-model="selected">
+        <option disabled value="">Choose a fruit</option>
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Strawberry</option>
+      </select>
+      <span>Fruit chosen: {{selected}}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          message: "hello",
+          selected: "",
+        },
+      });
+    </script>
+  </body>
+</html>

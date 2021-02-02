@@ -1,0 +1,45 @@
+<html>
+  <body>
+    <div id="app">
+      <user-name name="Kevin"></user-name>
+      <user-name name="Josh"></user-name>
+      <user-name name="Flavio"></user-name>
+      <header-3></header-3>
+    </div>
+
+    <div id="app2">
+      <header-3></header-3>
+      <header-3></header-3>
+      <header-3></header-3>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      //Properties of any component: el, props, template, data, methods, watch, computed
+      const UserName = Vue.component("user-name", {
+        props: ["name"],
+        template: "<p>Hi {{name}}</p>",
+      });
+
+      const Header3 = {
+        name: "header-3",
+        template: "<h3>this is Header 3</h3>",
+      };
+
+      //option 1 to mount the element
+      // new Vue({
+      //   el: "#app",
+      //   components: { UserName, Header3 },
+      // });
+
+      //option 2 to mount the element
+      new Vue({
+        components: { UserName, Header3 },
+      }).$mount("#app");
+
+      new Vue({
+        el: "#app2",
+      });
+    </script>
+  </body>
+</html>

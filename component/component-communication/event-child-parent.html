@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <div id="app">
+      <child @clicked-in-child="handleClickInParent"></child>
+      <hr />
+      <p>...parent part {{msg}}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const Child = {
+        name: "child",
+        template:
+          '<button @click="handleClickInChild">Child part... Click me! </button > ',
+        methods: {
+          handleClickInChild() {
+            console.log("handled by the child now..");
+            this.$emit("clicked-in-child", "the child");
+          },
+        },
+      };
+      new Vue({
+        el: "#app",
+        components: { Child },
+        data: {
+          msg: "??",
+        },
+        methods: {
+          handleClickInParent: function (param1) {
+            console.log("handled by the parent now..");
+            this.msg = "This is caused by " + param1;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
